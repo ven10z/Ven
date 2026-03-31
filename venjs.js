@@ -129,7 +129,7 @@ function showProfile() {
                     <div class="col-md-4 text-center border-end border-secondary">
                         <img src="profile_ven.jpg" class="img-fluid rounded mb-3" style="border: 2px solid #00093c; box-shadow: 0 0 20px rgba(229,9,20,0.5);">
                         <h1 class="text-white">VEN</h1>
-                        <p class="badge bg-danger">Game Developer / Quality Assurance Engineer</p>
+                        <p class="badge bg-danger text-wrap" style="max-width: 100%;">Game Developer / Quality Assurance Engineer</p>
                         <div class="mt-4 text-start">
                             <h3 class="now-showing" style="font-size: 2 rem; color: #e50914; border-bottom: 2px solid #e50914;">About Me</h3>
                             <p class="text-light bio-text" style="font-size: .95 rem; line-height: 1.6; font-weight: 400;">

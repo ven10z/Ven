@@ -460,6 +460,16 @@ nav a:hover{
     .sidebar{
         width: 100%;
     }
+    .badge {
+        white-space: normal !important;
+        display: inline-block;
+        line-height: 1.4;
+        padding: 8px;
+    }
+    
+    .movie-container h1 {
+        word-break: break-word;
+    }
 }
 
 img, video{
