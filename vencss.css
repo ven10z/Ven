@@ -1,222 +1,697 @@
-*{
-    margin: 0;
-    padding:0;
-    box-sizing: border-box;
-}
-
-:root{
-    --primary-color: red;
-    --secondary-color: #f0f0f0;
-    --text-color: #333;
+@font-face {
+    font-family: 'HBO';
+    src: url('hbologosupplement/hbologosupplement.ttf') format('truetype');
 }
 
 body{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    background: black;
+    margin: 0;
+    padding: 0;
+    font-family: 'HBO';
+    background-color: black;
+    color: white;
+    letter-spacing: 2px;
 }
 
 header{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
     display: flex;
+    height: 70px;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 100px;
-    z-index: 10;
-}
-
-.logo{
-    color: black;
-    font-size: 40px;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-.nav li{
-    list-style: none;
-    margin: 0 10px;
-}
-
-.nav li a{
-    color: black;
-    text-decoration: none;
-    font-weight: 500;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition:  0.3s;
-}   
-
-.nav li a:hover{
-    color: var(--secondary-color);
-}
-
-.banner{
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    padding: 0 100px;
-    justify-content: space-between;
-    align-items: center;
-    background: url(raveeen.jpg) no-repeat;
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
-    transition: 0.5s;
-}
-
-.banner::before{
-    position: absolute;
-    content: '';
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-}
-
-.content{
-    position: relative;
-    max-width: 500px;
-    display: none;
-    visibility: hidden;
-    transform: scale(0);
-    transition: 0.5s;
-}
-
-.content.active{
-    display: block;
-    visibility: visible;
-    transform: scale(1);
-    transition: 0.5s;
-}
-
-.profile{
-    max-width: 500px;
-    max-height: 300px;
-}
-
-.banner .content h4{
-    color: white;
-    font-size: 30px;
-    font-weight: 500;
-}
-
-.banner .content h4 span{
-    padding: 0 10px;
-    border-right: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-.banner .content h4 span:first-child{
-    padding-left: 0;
-}
-
-.banner .content h4 span:last-child{
-    border-right: none;
-}
-
-.banner .content p{
-    font-size: 1em;
-    font-weight: 300;
-    line-height: 1.5em;
-    color: white;
-    margin: 10px 0 20px;
-}
-
-.banner .content .button{
-    position: relative;
-}
-
-.banner .content .button a{
-    position: relative;
-    display: inline-block;
-    margin-right: 10px;
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    padding: 6px 20px;
-    text-decoration: none;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    transform: 0.5s;
-    cursor: pointer;
-}
-
-.banner .content .button a:nth-child(1){
-    background: rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-.banner .content .button a:hover:nth-child(1){
-    background: var(--primary-color);
-}
-
-.banner .content .button a:nth-child(2){
-    background: rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-}
-
-.banner .content .button a:hover:nth-child(2){
-    background: var(--primary-color);
-}
-
-.banner .carousel-box{
-    position: relative;
-    min-width: 900px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.2);
-    box-shadow: 10px 10px 100px rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 0 50px;
+    background-color: #00093c91;
     backdrop-filter: blur(10px);
-    border-radius: 10px;
+    position: relative;
+    z-index: 1000;
+}
+
+header h1{
+    font-size: 40px;
+    cursor: default;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+    min-height: 50px;
+    gap:20px
+}
+
+nav ul{
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+nav li{
+    margin-top: 10px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+nav a{
+    text-decoration: none;
+    align-items: center;
+    display: flex;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 0px 10px;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+    transition: 0.4s;
+}
+
+nav a:hover{
+    color: red;
+}
+
+.sidebar{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #00093cb4;
+    backdrop-filter: blur(20px);
+    width: 250px;
+    height: 100vh;
+    box-shadow: -10px 0 10px rgba(255, 255, 255, 0.644);
+    display: none;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    z-index: 2000;
+}
+
+.sidebar li{
+    width: 100%;
+}
+
+.sidebar a{
+    width: 100%;
+}
+
+.sidebar:hover{
+    color: red;
+}
+
+.menu-icon{
+    margin: 0 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    display: none;
+}
+
+.close-icon{
+    height: 30px;
+    width: 30px;
+    margin-top: 20px;
+    cursor: pointer;
+    color: white;
+}
+
+.close-icon:hover{
+    color: red;
 }
 
 .carousel{
-    max-width: 800px;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
     position: relative;
-    height: fit-content;
-    perspective: 1500px;
+    margin-top: -70px;
 }
 
-.carousel .carousel-item{
-    width: 800px;
+.carousel .choice .item{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;  
+}
+
+.carousel .choice .item .content{
+    position: absolute;
+    top: 10%;
+    width: 90%;
+    max-width: 1140px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-right: 30px;
+    box-sizing: border-box;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+}
+
+.content h1{
+    font-size: clamp(28px, 6vw, 65px);
+    font-weight: bold;
+    text-wrap: nowrap;
+}
+
+.description{
+    font-size: 25px;
+    font-weight: 400;
+    color:white;
+    padding: 0 10px;
+}
+
+
+.content .buttons{
+    position: relative;
+}
+
+.content .buttons a{
+    position: relative;
+    text-decoration: none;
+    display: inline-block;
+    padding: 6px 20px;
+    margin-right: 10px;
+    background: #00093c;
+    color: white;
+    font-weight: 500;
+    text-transform: uppercase;
     cursor: pointer;
+    transition: 0.4s;
 }
 
-.carousel .carousel-item img{
-    max-width: 950px;
-    align-items: center;
+.content .buttons a:hover{
+    color: red;
+}
+
+/* Find this section in vencss.css */
+.carousel-slide {
+    border: 3px solid blue;
+    width: 100%; 
+    max-width: 450px; 
+    height: auto;
+    aspect-ratio: 3 / 2; 
     border-radius: 10px;
-    object-position: center;    
+    margin-top: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
 }
 
-.social-icons{
+.fit-image {
+    object-fit: fill !important;
+}
+
+.carousel-slide .carousel-inner,
+.carousel-slide .carousel-item {
+    height: 100%;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+#myVideo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    object-fit: cover; 
+}
+
+.thumbnail{
     position: absolute;
     bottom: 50px;
-    right: 30px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    gap: 25px;
+    left: 50%;  
+    width: max-content;
+    z-index: 500;
+    display: flex;
+    gap: 20px;
+    padding: 15px;
+    background-color: rgba(211,211, 211, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    transform: none;
 }
 
-.social-icons a{
-    color: black;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 25px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    transition: 0.3s;
+.thumbnail .item {
+    width: 160px;        
+    height: 100px;       
+    flex-shrink: 0;
+    position: relative;
     cursor: pointer;
+    transition: 0.3s;
 }
 
-.social-icons a:hover{
-    color: var(--secondary-color);
+.thumbnail .item:hover {
+    transform: scale(1.1);
+    z-index: 10;
+}
+
+.thumbnail .item:first-child {
+    opacity: 0.5;
+    cursor: default;
+    pointer-events: none;
+}
+
+.thumbnail .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px; 
+    mix-blend-mode: lighten;
+}
+
+.thumbnail .item .thum-content{
+    position: absolute;
+    bottom: 10px;        
+    left: 50%;          
+    transform: translateX(-50%); 
+    text-align: center;
+    width: 100%;
+}
+
+.thumbnail .arrow {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between; 
+    pointer-events: none; 
+    
+}
+
+.thumbnail .arrow .arrow-button a {
+    pointer-events: auto; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    transition: 0.3s;
+    backdrop-filter: blur(50px);
+}
+
+.thumbnail .arrow .arrow-button a:hover {
+    background: red;
+    transform: scale(1.1);
+}
+
+.carousel .choice .item:nth-child(1){
+    z-index: 1;
+}
+
+.carousel .choice .item:nth-child(1) .content{
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent .5s 1s linear 1 forwards;
+}
+
+@keyframes showContent {
+    to{
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+.carousel.next .thumbnail{
+    animation: effectNext .5s linear 1 forwards;
+}
+
+@keyframes effectNext {
+    from{
+        transform: translateX(150px);
+    }
+}
+.carousel.prev .choice .item:nth-child(2){
+    z-index: 200;
+}
+
+.carousel.prev .choice .item:nth-child(2) .content{
+    animation: contentOut .5s linear 1 forwards;
+}
+
+@keyframes contentOut {
+    to{
+        filter: blur(20px);
+        opacity: 0;
+    }
+}
+
+.carousel .arrow .arrow-button {
+    pointer-events: none;
+}
+
+.carousel .time{
+    position: absolute;
+    z-index: 999;
+    width: 0;
+    height: 5px;
+    background-color: red;
+    left: 0;
+    top: 0;
+}
+
+.carousel.next .time,
+.carousel.prev .time{
+    animation: runTime 2s linear 1 forwards;
+}
+
+@keyframes runTime {
+    from{width: 100%;}
+    to {width: 0;}
+}
+
+@media screen and (max-width: 800px){
+    
+    .carousel .choice .item {
+        overflow-y: auto; 
+        display: flex;
+        flex-direction: column;
+    }
+
+    .carousel .choice .item .content {
+        position: relative; 
+        top: 0;
+        left: 0;
+        transform: none;
+        width: 100%;
+        padding: 100px 20px 150px 20px; 
+        box-sizing: border-box;
+    }
+
+    .carousel-slide {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        margin: 20px auto; 
+    }
+
+    .thumbnail {
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 95%;
+        z-index: 1000;
+    }
+
+    .carousel .choice .item .content h1{
+        font-size: 50px
+    }
+
+    .description p{
+        font-size: 17px;
+    }
+
+    .hideNav{
+        display:none;
+    }
+
+    .menu-icon{
+        display: block;
+    }
+
+    .carousel-slide{
+        margin-top: 15px;
+    }
+
+    header{
+        padding: 0 15px;
+    }
+
+    .content{
+        top: 10%;
+    }
+   
+    .thumbnail .item {
+        width: 120px;    
+        height: 80px;
+    }
+
+    .arrow-button a{
+        width: 40px;
+        height: 40px;
+    }
+
+    .project-poster {
+        height: 300px;
+    }
+
+    .screenshot-item {
+        flex: 0 0 90%;  
+        height: 150px;
+    }
+
+    .poster-wrapper {
+        flex: 0 0 90%;
+    }
+}
+
+@media(max-width: 400px) {
+    .sidebar{
+        width: 100%;
+    }
+}
+
+img, video{
+    max-width: 100%;
+    height: auto;
+}
+
+.animate-in {
+    animation: slideUpFade 0.7s ease-out forwards;
+    color: white;
+}
+
+@keyframes slideUpFade {
+    from { opacity: 0; transform: translateY(40px); filter: blur(5px); }
+    to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+.movie-container {
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid #e50914; /* Netflix-style Red */
+    box-shadow: 0 0 30px rgba(229, 9, 20, 0.4);
+    padding: 30px;
+    border-radius: 15px;
+    position: relative;
+}
+
+.now-showing {
+    font-family: 'Slabo 27px', serif;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    border-bottom: 2px solid #e50914;
+    display: inline-block;
+    margin-bottom: 30px;
+}
+
+.project-poster {
+    width: 100%;
+    height: 400px; /* Adjust this height to your liking */
+    object-fit: cover; /* This is the magic: it crops instead of stretching */
+    border: 3px solid #333;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.project-poster:hover {
+    transform: scale(1.05);
+    border-color: #e50914;
+    box-shadow: 0 0 15px #e50914;
+}
+
+.ticket-btn {
+    background: #e50914;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    clip-path: polygon(10% 0, 90% 0, 100% 50%, 90% 100%, 10% 100%, 0 50%);
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.ticket-btn:hover {
+    background: white;
+    color: #e50914;
+}
+
+.film-strip {
+    display: flex;
+    gap: 30px; /* Increased gap for better spacing */
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.screenshot-item {
+    width: 100%; /* Ensures it fills the wrapper */
+    height: auto;
+    max-height: 600px; /* Increased from 400px to 600px */
+    object-fit: contain; 
+    background: #000;
+    border: 5px solid #1a1a1a;
+    border-left: 12px dashed #333; /* Slightly thicker "film" effect */
+    border-right: 12px dashed #333;
+    transition: transform 0.3s, border-color 0.3s;
+    border-radius: 4px;
+}
+
+.film-strip .poster-wrapper {
+    flex: 0 1 800px;
+    max-width: 95%;  
+}
+
+.screenshot-item:hover {
+    transform: scale(1.05); 
+    border-color: #e50914;
+    z-index: 10;
+}
+
+.back-to-posters {
+    cursor: pointer;
+    color: #e50914;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.poster-wrapper {
+    position: relative;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    flex: 0 0 90%;
+}
+
+.image-description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+    color: white;
+    padding: 20px 10px 10px 10px;
+    font-size: 0.85rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+    pointer-events: none; 
+}
+
+.poster-wrapper .image-description {
+    transform: translateY(100%);
+}
+
+.poster-wrapper:hover .image-description {
+    transform: translateY(0);
+}
+
+.tech-category-card {
+    background: rgba(20, 20, 20, 0.8);
+    border: 3px solid #00093c;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 15px rgba(255, 152, 0, 0.2);
+    transition: 0.3s;
+}
+
+.tech-category-card:hover {
+    box-shadow: 0 0 25px rgba(255, 38, 0, 0.664);
+    transform: translateY(-5px);
+}
+
+.tech-category-title {
+    color: #ff9800;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(255, 152, 0, 0.3);
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+}
+
+.tech-item {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    padding: 6px 12px;
+    margin: 4px;
+    color: white;
+    font-size: 0.85rem;
+    cursor:default;
+}
+
+.tech-item:hover{
+    box-shadow: 0 0 25px rgba(255, 38, 0, 0.664);
+    transform: translateY(-5px);
+}
+
+.contact-me:hover{
+    box-shadow: 0 0 25px rgba(255, 38, 0, 0.664);
+    transform: translateY(-5px);
+}
+
+.hire-me:hover{
+    box-shadow: 0 0 25px rgba(255, 38, 0, 0.664);
+    transform: translateY(-5px);
+}
+
+.code-link {
+    cursor: pointer !important;
+}
+
+.tech-item img {
+    height: 20px;
+    width: auto;
+    margin-right: 8px; 
+    object-fit: contain;
+}
+
+#main-content-area:not(.carousel) {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.movie-container {
+    background: rgba(0, 0, 0, 0.575) !important;
+    backdrop-filter: blur(70px);
+    z-index: 1;
+}
+
+#main-content-area.carousel {
+    transition: opacity 0.4s ease-in-out;
+}
+
+
+#theatre-container {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    background: black;
+    z-index: 5;
+}
+
+.theatre-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
 }
